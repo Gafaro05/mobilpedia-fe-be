@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/splash_screen.dart';
 import 'screens/welcome_page.dart';
 import 'screens/register_page.dart';
+import 'screens/home_page.dart';
 
 
 void main() {

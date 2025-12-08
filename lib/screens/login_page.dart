@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -32,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 const Text(
                   'Login',
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.black),
+                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 255, 255, 255)),
                 ),
 
                 const SizedBox(height: 40),
@@ -40,11 +41,11 @@ class _LoginPageState extends State<LoginPage> {
                 // Input Username
                 TextField(
                   style: const TextStyle(color: Colors.white),
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.person, color: Colors.white),
+                  decoration: const InputDecoration(
+                    prefixIcon: Icon(Icons.person, color: Colors.white),
                     hintText: 'Username',
-                    hintStyle: const TextStyle(color: Colors.white54),
-                    enabledBorder: const UnderlineInputBorder(
+                    hintStyle: TextStyle(color: Colors.white54),
+                    enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
                     ),
                   ),
@@ -86,9 +87,16 @@ class _LoginPageState extends State<LoginPage> {
 
                 const SizedBox(height: 30),
 
-                // ✅ Tombol Login di halaman Login
+                // ✅ Tombol Login (SUDAH DITAMBAHKAN NAVIGATOR)
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomePage(),
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueAccent,
                     minimumSize: const Size(220, 50),

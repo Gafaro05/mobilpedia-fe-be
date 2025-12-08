@@ -31,14 +31,14 @@ class WelcomePage extends StatelessWidget {
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Color.fromARGB(255, 255, 255, 255),
                 height: 1.2,
               ),
             ),
             const SizedBox(height: 20),
 
             Image.asset(
-              "assets/images/welcome_illustration.png",
+              "assets/logo.png",
               width: 220,
               errorBuilder: (context, error, stackTrace) => const Icon(
                 Icons.laptop_mac,

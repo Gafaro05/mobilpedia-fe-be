@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home_page.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
@@ -24,15 +25,16 @@ class RegisterPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "BUAT AKUN BARU",
+                "BUAT AKUN",
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
-                  shadows: [Shadow(blurRadius: 8, offset: Offset(2, 2))],
                 ),
               ),
+
               const SizedBox(height: 40),
+
               _input("Nama Lengkap"),
               const SizedBox(height: 12),
               _input("Alamat"),
@@ -42,8 +44,12 @@ class RegisterPage extends StatelessWidget {
               _input("Email"),
               const SizedBox(height: 12),
               _input("Username"),
+
               const SizedBox(height: 30),
 
+              // ======================================
+              //  TOMBOL REGISTER → KE HOMEPAGE
+              // ======================================
               SizedBox(
                 width: 200,
                 height: 50,
@@ -54,7 +60,17 @@ class RegisterPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  onPressed: () {},
+
+                  // 👉 Ini yang ditambahkan
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomePage(),
+                      ),
+                    );
+                  },
+
                   child: const Text(
                     "Register",
                     style: TextStyle(
