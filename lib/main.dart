@@ -1,22 +1,33 @@
 import 'package:flutter/material.dart';
-import 'screens/splash_screen.dart';
-import 'screens/welcome_page.dart';
-import 'screens/register_page.dart';
-import 'screens/home_page.dart';
+import 'package:provider/provider.dart';
 
+import 'providers/auth_provider.dart';
+import 'screens/splash/splash_screen.dart';
+import 'screens/auth/login_page.dart';
+import 'screens/home/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MobilPediaApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MobilPediaApp extends StatelessWidget {
+  const MobilPediaApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const SplashScreen(), // ← INI HARUS SPLASH SCREEN SEBAGAI AWAL
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'MobilPedia',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          fontFamily: 'Roboto',
+        ),
+        home: const SplashScreen(),
+      ),
     );
   }
 }
